@@ -201,7 +201,7 @@
 
 
 function clearTemplate() {
-	$('#editor').cleanHtml()
+	$('#editor').empty();
 }
 
 function downloadTemplate() {
