@@ -198,3 +198,20 @@
 		fileUploadError: function (reason, detail) { console.log("File upload error", reason, detail); }
 	};
 }(window.jQuery));
+
+
+function clearTemplate() {
+	$('#editor').cleanHtml()
+}
+
+function downloadTemplate() {
+	let content = $("#editor").html();
+	let uriContent = URL.createObjectURL(new Blob([content], {type : 'text/html'}));
+	let download = document.createElement('a');
+	download.setAttribute('href', uriContent);
+	download.setAttribute('download', "Email_Template.html");
+	download.style.display = 'none';
+	document.body.appendChild(download);
+	download.click();
+	document.body.removeChild(download);
+}
